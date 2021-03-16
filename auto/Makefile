@@ -2,11 +2,14 @@ NAME = lcode
 FLAGS = -Wall -Wextra -Werror
 INCLUDES = -I includes/
 
-SRC_DIR = src/
+SRC_DIR =
 BIN_DIR = bin/
 
 # List of all the source files.
-SRC_NAMES = \
+SRC_NAMES =	\
+	do_oper	\
+	main	\
+	utils	\
 
 # List of all the source files, folders are to be added by
 # including a $(addprefix, DIR_NAME, $(DIR_FILES))
@@ -20,8 +23,8 @@ OBJS = $(addprefix $(BIN_DIR), $(SRCS:.c=.o))
 
 all: $(NAME)
 
-$(NAME): $(BIN_DIR) $(OBJS)
-	gcc $(FLAGS) $(INCLUDES) -o $(NAME) $(OBJS)
+$(NAME):
+	gcc $(FLAGS) $(INCLUDES) -o $(NAME) $(SRCS)
 
 $(BIN_DIR):
 	mkdir -p $(BIN_DIR)

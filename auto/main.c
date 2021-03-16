@@ -61,7 +61,7 @@ void	choices(char *input)
 		{"resume",	resume},
 	};
 
-	int	i;
+	size_t	i = 0;
 	while (i < sizeof(choices) / sizeof(t_oper))
 	{
 		if (strncmp(choices[i].choice, input, strlen(choices[i].choice)) == 0)
@@ -81,7 +81,6 @@ t_app	app;
 
 int	main(int ac, char **args)
 {
-	int		id;
 	char	read[256];
 
 	chdir(dirname(args[0]));

@@ -18,7 +18,7 @@ void	begin(void *v_str)
 	resume(v_str);
 }
 
-void	test(__unused void *str)
+void	test(__attribute__((unused)) void *str)
 {
 	char	*command;
 	char	*test_case;
@@ -45,7 +45,7 @@ char	*extract_file(char *file) {
 	char *str; FILE *fh = fopen(file, "r"); fseek(fh, 0L, SEEK_END); long l = ftell(fh); str = calloc(l + 1, 1), rewind(fh); fread(str, l, 1, fh); return (str);
 }
 
-void	submit(__unused void *str)
+void	submit(__attribute__((unused)) void *str)
 {
 	char	*command;
 	char	*answer;
@@ -80,12 +80,13 @@ void	submit(__unused void *str)
 	}
 }
 
-void	escape(__unused void *str)
+void	escape(__attribute__((unused)) void *str)
 {
+	freeze(NULL);
 	exit(EXIT_SUCCESS);
 }
 
-void	freeze(void *str)
+void	freeze(__attribute__((unused)) void *str)
 {
 	char	*pause_str;
 	time_t	pause_t;
@@ -100,7 +101,6 @@ void	freeze(void *str)
 
 void	resume(void *str)
 {
-	int		no;
 	long	prev;
 	int		id = atoi(str);
 
