@@ -33,7 +33,7 @@ void	test(__attribute__((unused)) void *str)
 	test_case = NULL;
 	test_file = fopen("test", "r");
 	getline(&test_case, &size, test_file);
-	asprintf(&command, "leetcode test leetcode/%04d.c -t %s\\n", app.current, test_case);
+	asprintf(&command, "leetcode test leetcode/%04d"SUFFIX" -t %s\\n", app.current, test_case);
 	// printf("%s", command);
 
 	fclose(test_file);
@@ -42,7 +42,7 @@ void	test(__attribute__((unused)) void *str)
 }
 
 char	*extract_file(char *file) {
-	char *str; FILE *fh = fopen(file, "r"); fseek(fh, 0L, SEEK_END); long l = ftell(fh); str = calloc(l + 1, 1), rewind(fh); fread(str, l, 1, fh); return (str);
+	char *str; FILE *fh = fopen(file, "r"); fseek(fh, 0L, SEEK_END); long l = ftell(fh); str = calloc(l + 2, 1), rewind(fh); fread(str, l, 1, fh); return (str);
 }
 
 void	submit(__attribute__((unused)) void *str)
@@ -55,7 +55,7 @@ void	submit(__attribute__((unused)) void *str)
 	if (app.current == -1)
 		return ;
 
-	asprintf(&command, "leetcode submit leetcode/%04d.c > submit", app.current);
+	asprintf(&command, "leetcode submit leetcode/%04d"SUFFIX" > submit", app.current);
 	// printf("%s", command);
 	system(command);
 	free(command);
@@ -90,19 +90,28 @@ void	freeze(__attribute__((unused)) void *str)
 {
 	char	*pause_str;
 	time_t	pause_t;
+	long	prev_t;
 
+	if (app.current == -1)
+		return ;
+
+	prev_t = cache_find(app.current);
 	time(&(pause_t));
-	asprintf(&(pause_str), "echo \"%04d %.10ld\" >> cache", app.current, (app.start_curr - pause_t));
+	asprintf(&(pause_str), "echo \"%04d %.10ld\" >> cache", app.current, (app.start_curr - pause_t + prev_t));
 	system(pause_str);
 
 	app.current = -1;
 	time(&(app.start_curr));
+	free(pause_str);
 }
 
 void	resume(void *str)
 {
 	long	prev;
 	int		id = atoi(str);
+
+	if (app.current != -1)
+		freeze(NULL);
 
 	open_url_id(id);
 	open_problem_file(id);

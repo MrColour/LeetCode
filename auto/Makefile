@@ -1,5 +1,5 @@
 NAME = lcode
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -fsanitize=address
 INCLUDES = -I includes/
 
 SRC_DIR =

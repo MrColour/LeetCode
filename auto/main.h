@@ -14,14 +14,16 @@
 #ifndef MAIN_H
 # define MAIN_H
 
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <libgen.h>
-#include <stdbool.h>
-#include <string.h>
-#include <time.h>
+/* Note that unistd does not exist in ALL PLATFORMS some macro should be used */
+#include <unistd.h> /* Needed only for chdir */
+#include <stdio.h> /* printf family and FILE functions */
+#include <stdlib.h> /* malloc family, exit, system */
+// #include <libgen.h> /* dirname ¡¡Might not be needed!! */
+#include <stdbool.h> /* bool */
+#include <string.h> /* memmove, strstr, strchr, strlen, strncmp */
+#include <time.h> /* time_t, time */
+
+#define SUFFIX ".py"
 
 typedef struct	s_app
 {
