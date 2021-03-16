@@ -15,17 +15,18 @@
 
 void	choices(char *input)
 {
+	size_t	i;
 	t_oper	choices[] =
 	{
 		{"begin",	begin},
 		{"test",	test},
 		{"submit",	submit},
-		{"close",	escape},
-		{"pause",	freeze},
+		{"close",	escape}, /* close is already a reserved keyword */
+		{"pause",	freeze}, /* pause is unistd function */
 		{"resume",	resume},
 	};
 
-	size_t	i = 0;
+	i = 0;
 	while (i < sizeof(choices) / sizeof(t_oper))
 	{
 		if (strncmp(choices[i].choice, input, strlen(choices[i].choice)) == 0)
@@ -45,32 +46,21 @@ t_app	app;
 
 int	main(int ac, char **args)
 {
-	char	read[256];
+	char	read[256]; /* Expand accordinly */
 
 	// chdir(dirname(args[0]));
 	chdir(args[0]);
 
-	system("touch cache"); //Used for resume and pausing a given problem
-	system("touch record"); //Database file
-	system("touch submit"); //Result of submiting test
-
-	system("touch test"); //Used to try the leetcode-cli test
-	system("code test");
-
-	system("mkdir -p leetcode"); //Where the problems are
-
 	app.current = -1;
+	init_working();
 
-	if (ac >= 2)
-	{
-		begin(args[1]);
-	}
+	if (ac >= 2) { begin(args[1]); }
 
 	while (app.exit == false)
 	{
 		fgets(read, sizeof(read), stdin);
 		choices(read);
 	}
-	remove("temp");
+	escape(NULL);
 	return (0);
 }

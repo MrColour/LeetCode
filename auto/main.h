@@ -24,6 +24,7 @@
 #include <time.h> /* time_t, time */
 
 #define SUFFIX ".py"
+#define IDE "code"
 
 typedef struct	s_app
 {
@@ -51,6 +52,7 @@ void	resume(void *str);
 void	open_problem_file(int id);
 void	open_url_id(int problem_no);
 long	cache_find(int no);
+void	init_working(void);
 
 char	*extract_file(char *file);
 

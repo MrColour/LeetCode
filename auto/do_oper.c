@@ -13,10 +13,7 @@
 
 #include "main.h"
 
-void	begin(void *v_str)
-{
-	resume(v_str);
-}
+void	begin(void *v_str) { resume(v_str); }
 
 void	test(__attribute__((unused)) void *str)
 {
@@ -30,6 +27,7 @@ void	test(__attribute__((unused)) void *str)
 	if (app.current == -1)
 		return ;
 
+	size = 0;
 	test_case = NULL;
 	test_file = fopen("test", "r");
 	getline(&test_case, &size, test_file);
@@ -39,10 +37,6 @@ void	test(__attribute__((unused)) void *str)
 	fclose(test_file);
 	system(command);
 	free(command);
-}
-
-char	*extract_file(char *file) {
-	char *str; FILE *fh = fopen(file, "r"); fseek(fh, 0L, SEEK_END); long l = ftell(fh); str = calloc(l + 2, 1), rewind(fh); fread(str, l, 1, fh); return (str);
 }
 
 void	submit(__attribute__((unused)) void *str)
@@ -78,11 +72,14 @@ void	submit(__attribute__((unused)) void *str)
 	{
 		printf("try again\n");
 	}
+	free(answer);
 }
 
 void	escape(__attribute__((unused)) void *str)
 {
 	freeze(NULL);
+	remove("temp");
+	remove("submit");
 	exit(EXIT_SUCCESS);
 }
 
