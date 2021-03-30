@@ -31,7 +31,7 @@
 #if defined(WIN32)
 	#define OPEN_COM "start"
 #elif __APPLE__
-	#define OPEN_COM "oepn"
+	#define OPEN_COM "open"
 #elif __linux__
 	#define OPEN_COM "xdg-open"
 #endif
