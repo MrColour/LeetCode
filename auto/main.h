@@ -14,6 +14,8 @@
 #ifndef MAIN_H
 # define MAIN_H
 
+#define _GNU_SOURCE
+
 /* Note that unistd does not exist in ALL PLATFORMS some macro should be used */
 #include <unistd.h> /* Needed only for chdir */
 #include <stdio.h> /* printf family and FILE functions */
@@ -25,6 +27,14 @@
 
 #define SUFFIX ".py"
 #define IDE "code"
+
+#if defined(WIN32)
+	#define OPEN_COM "start"
+#elif __APPLE__
+	#define OPEN_COM "oepn"
+#elif __linux__
+	#define OPEN_COM "xdg-open"
+#endif
 
 typedef struct	s_app
 {
@@ -43,9 +53,9 @@ typedef struct	s_oper
 extern t_app	app;
 
 void	begin(void *str);
-void	test(__unused void *str);
-void	submit(__unused void *str);
-void	escape(__unused void *str);
+void	test(__attribute__((unused)) void *str);
+void	submit(__attribute__((unused)) void *str);
+void	escape(__attribute__((unused)) void *str);
 void	freeze(void *str);
 void	resume(void *str);
 
