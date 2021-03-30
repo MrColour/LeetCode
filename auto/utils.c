@@ -50,7 +50,7 @@ long	cache_find(int no)
 		fprintf(cache_file, "%s", cache_str);
 		fclose(cache_file);
 	}
-	free(found);
+	free(cache_str);
 	return (res);
 }
 
@@ -73,9 +73,11 @@ void	open_url_id(int problem_no)
 	getline(&url, &url_size, tf);
 	fclose(tf);
 
-	asprintf(&url_com, "open %s", url);
+	asprintf(&url_com, OPEN_COM" %s", url);
+	printf("THIS is our com%s", url_com);
 	system(url_com);
 	free(url_com);
+	free(url);
 }
 
 void	open_problem_file(int id)
