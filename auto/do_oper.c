@@ -72,6 +72,7 @@ void	submit(__attribute__((unused)) void *str)
 	{
 		printf("try again\n");
 	}
+	system("make -f ../Makefile submit");
 	free(answer);
 }
 
