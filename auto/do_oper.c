@@ -63,6 +63,7 @@ void	submit(__attribute__((unused)) void *str)
 		printf("Took: %ld\n", (end - app.start_curr));
 		asprintf(&record_str, "echo \"%04d %.10ld\" >> record", app.current, (end - app.start_curr));
 		system(record_str);
+		system("make -f ../Makefile submit");
 		free(record_str);
 
 		app.current = -1;
@@ -72,7 +73,6 @@ void	submit(__attribute__((unused)) void *str)
 	{
 		printf("try again\n");
 	}
-	system("make -f ../Makefile submit");
 	free(answer);
 }
 
@@ -101,6 +101,7 @@ void	freeze(__attribute__((unused)) void *str)
 	app.current = -1;
 	time(&(app.start_curr));
 	free(pause_str);
+	system("make -f ../Makefile submit");
 }
 
 void	resume(void *str)
@@ -113,6 +114,7 @@ void	resume(void *str)
 
 	open_url_id(id);
 	open_problem_file(id);
+	system("make -f ../Makefile pull");
 
 	prev = cache_find(id);
 	app.current = id;

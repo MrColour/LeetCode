@@ -60,3 +60,6 @@ submit: fclean
 	git add ../.
 	git commit -m "New Problem Solved, auto save" || true
 	git push
+
+pull:
+	git pull
