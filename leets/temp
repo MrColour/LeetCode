@@ -1,48 +1,50 @@
-- Downloading minimum-number-of-operations-to-move-all-balls-to-each-box
-(node:5450) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+- Downloading design-parking-system
+(node:5831) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
 (Use `node --trace-warnings ...` to show where the warning was created)
-[1769] Minimum Number of Operations to Move All Balls to Each Box  
+[1603] Design Parking System  
 
-https://leetcode.com/problems/minimum-number-of-operations-to-move-all-balls-to-each-box/description/
+https://leetcode.com/problems/design-parking-system/description/
 
 * algorithms
-* Medium (87.14%)
-* Total Accepted:    21.6K
-* Total Submissions: 24.8K
-* Testcase Example:  '"32"'
+* Easy (86.20%)
+* Total Accepted:    53.6K
+* Total Submissions: 62.2K
+* Testcase Example:  '["ParkingSystem","addCar","addCar","addCar","addCar"]\n' +
+  '[[1,1,0],[1],[2],[3],[1]]'
 
-A decimal number is called deci-binary if each of its digits is either 0 or 1 without any leading zeros. For example, 101 and 1100 are deci-binary, while 112 and 3001 are not.
+Design a parking system for a parking lot. The parking lot has three kinds of parking spaces: big, medium, and small, with a fixed number of slots for each size.
 
-Given a string n that represents a positive decimal integer, return the minimum number of positive deci-binary numbers needed so that they sum up to n.
+Implement the ParkingSystem class:
+
+
+	ParkingSystem(int big, int medium, int small) Initializes object of the ParkingSystem class. The number of slots for each parking space are given as part of the constructor.
+	bool addCar(int carType) Checks whether there is a parking space of carType for the car that wants to get into the parking lot. carType can be of three kinds: big, medium, or small, which are represented by 1, 2, and 3 respectively. A car can only park in a parking space of its carType. If there is no space available, return false, else park the car in that size space and return true.
+
 
  
 Example 1:
 
 
-Input: n = "32"
-Output: 3
-Explanation: 10 + 11 + 11 = 32
+Input
+["ParkingSystem", "addCar", "addCar", "addCar", "addCar"]
+[[1, 1, 0], [1], [2], [3], [1]]
+Output
+[null, true, true, false, false]
 
-
-Example 2:
-
-
-Input: n = "82734"
-Output: 8
-
-
-Example 3:
-
-
-Input: n = "27346209830709182346"
-Output: 9
+Explanation
+ParkingSystem parkingSystem = new ParkingSystem(1, 1, 0);
+parkingSystem.addCar(1); // return true because there is 1 available slot for a big car
+parkingSystem.addCar(2); // return true because there is 1 available slot for a medium car
+parkingSystem.addCar(3); // return false because there is no available slot for a small car
+parkingSystem.addCar(1); // return false because there is no available slot for a big car. It is already occupied.
 
 
  
 Constraints:
 
 
-	1 <= n.length <= 10^5
-	n consists of only digits.
-	n does not contain any leading zeros and represents a positive integer.
+	0 <= big, medium, small <= 1000
+	carType is 1, 2, or 3
+	At most 1000 calls will be made to addCar
+
 
