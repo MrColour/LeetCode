@@ -25,7 +25,7 @@
 #include <string.h> /* memmove, strstr, strchr, strlen, strncmp */
 #include <time.h> /* time_t, time */
 
-#define SUFFIX ".py"
+#define SUFFIX ".py3"
 #define IDE "code"
 
 #if defined(WIN32)

@@ -59,7 +59,7 @@ run:
 submit: fclean
 	git add ../.
 	git commit -m "New Problem Solved, auto save" || true
-	git push
+	git push https://$(GIT_TOK)@github.com/mrcolour/LeetCode
 
 pull:
 	git pull
