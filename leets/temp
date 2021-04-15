@@ -1,34 +1,48 @@
-- Downloading jewels-and-stones
-(node:3896) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+- Downloading partitioning-into-minimum-number-of-deci-binary-numbers
+(node:5197) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
 (Use `node --trace-warnings ...` to show where the warning was created)
-[771] Jewels and Stones  
+[1689] Partitioning Into Minimum Number Of Deci-Binary Numbers  
 
-https://leetcode.com/problems/jewels-and-stones/description/
+https://leetcode.com/problems/partitioning-into-minimum-number-of-deci-binary-numbers/description/
 
 * algorithms
-* Easy (86.98%)
-* Total Accepted:    614.8K
-* Total Submissions: 706.6K
-* Testcase Example:  '"aA"\n"aAAbbbb"'
+* Medium (87.14%)
+* Total Accepted:    21.6K
+* Total Submissions: 24.8K
+* Testcase Example:  '"32"'
 
-You're given strings jewels representing the types of stones that are jewels, and stones representing the stones you have. Each character in stones is a type of stone you have. You want to know how many of the stones you have are also jewels.
+A decimal number is called deci-binary if each of its digits is either 0 or 1 without any leading zeros. For example, 101 and 1100 are deci-binary, while 112 and 3001 are not.
 
-Letters are case sensitive, so "a" is considered a different type of stone from "A".
+Given a string n that represents a positive decimal integer, return the minimum number of positive deci-binary numbers needed so that they sum up to n.
 
  
 Example 1:
-Input: jewels = "aA", stones = "aAAbbbb"
+
+
+Input: n = "32"
 Output: 3
+Explanation: 10 + 11 + 11 = 32
+
+
 Example 2:
-Input: jewels = "z", stones = "ZZ"
-Output: 0
+
+
+Input: n = "82734"
+Output: 8
+
+
+Example 3:
+
+
+Input: n = "27346209830709182346"
+Output: 9
+
 
  
 Constraints:
 
 
-	1 <= jewels.length, stones.length <= 50
-	jewels and stones consist of only English letters.
-	All the characters of jewels are unique.
-
+	1 <= n.length <= 10^5
+	n consists of only digits.
+	n does not contain any leading zeros and represents a positive integer.
 
