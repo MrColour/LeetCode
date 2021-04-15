@@ -1,49 +1,53 @@
-[1603] Design Parking System  
+- Downloading how-many-numbers-are-smaller-than-the-current-number
+(node:6369) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1365] How Many Numbers Are Smaller Than the Current Number  
 
-https://leetcode.com/problems/design-parking-system/description/
+https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/description/
 
 * algorithms
-* Easy (86.20%)
-* Total Accepted:    53.6K
-* Total Submissions: 62.2K
-* Testcase Example:  '["ParkingSystem","addCar","addCar","addCar","addCar"]\n' +
-  '[[1,1,0],[1],[2],[3],[1]]'
+* Easy (85.95%)
+* Total Accepted:    189.8K
+* Total Submissions: 220.8K
+* Testcase Example:  '[8,1,2,2,3]'
 
-Design a parking system for a parking lot. The parking lot has three kinds of parking spaces: big, medium, and small, with a fixed number of slots for each size.
+Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].
 
-Implement the ParkingSystem class:
-
-
-	ParkingSystem(int big, int medium, int small) Initializes object of the ParkingSystem class. The number of slots for each parking space are given as part of the constructor.
-	bool addCar(int carType) Checks whether there is a parking space of carType for the car that wants to get into the parking lot. carType can be of three kinds: big, medium, or small, which are represented by 1, 2, and 3 respectively. A car can only park in a parking space of its carType. If there is no space available, return false, else park the car in that size space and return true.
-
+Return the answer in an array.
 
  
 Example 1:
 
 
-Input
-["ParkingSystem", "addCar", "addCar", "addCar", "addCar"]
-[[1, 1, 0], [1], [2], [3], [1]]
-Output
-[null, true, true, false, false]
+Input: nums = [8,1,2,2,3]
+Output: [4,0,1,1,3]
+Explanation: 
+For nums[0]=8 there exist four smaller numbers than it (1, 2, 2 and 3). 
+For nums[1]=1 does not exist any smaller number than it.
+For nums[2]=2 there exist one smaller number than it (1). 
+For nums[3]=2 there exist one smaller number than it (1). 
+For nums[4]=3 there exist three smaller numbers than it (1, 2 and 2).
 
-Explanation
-ParkingSystem parkingSystem = new ParkingSystem(1, 1, 0);
-parkingSystem.addCar(1); // return true because there is 1 available slot for a big car
-parkingSystem.addCar(2); // return true because there is 1 available slot for a medium car
-parkingSystem.addCar(3); // return false because there is no available slot for a small car
-parkingSystem.addCar(1); // return false because there is no available slot for a big car. It is already occupied.
+
+Example 2:
+
+
+Input: nums = [6,5,4,8]
+Output: [2,1,0,3]
+
+
+Example 3:
+
+
+Input: nums = [7,7,7,7]
+Output: [0,0,0,0]
 
 
  
 Constraints:
 
 
-	0 <= big, medium, small <= 1000
-	carType is 1, 2, or 3
-	At most 1000 calls will be made to addCar
+	2 <= nums.length <= 500
+	0 <= nums[i] <= 100
 
 
-(node:6093) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
-(Use `node --trace-warnings ...` to show where the warning was created)
