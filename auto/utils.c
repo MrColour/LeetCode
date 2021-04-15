@@ -74,6 +74,7 @@ void	open_url_id(int problem_no)
 	fclose(tf);
 
 	asprintf(&url_com, OPEN_COM" %s", url);
+	printf("THIS = %s", url_com);
 	system(url_com);
 	free(url_com);
 	free(url);
