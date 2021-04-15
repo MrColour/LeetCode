@@ -1,6 +1,3 @@
-- Downloading subtract-the-product-and-sum-of-digits-of-an-integer
-(node:11454) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
-(Use `node --trace-warnings ...` to show where the warning was created)
 [1281] Subtract the Product and Sum of Digits of an Integer  
 
 https://leetcode.com/problems/subtract-the-product-and-sum-of-digits-of-an-integer/description/
@@ -42,3 +39,5 @@ Constraints:
 	1 <= n <= 10^5
 
 
+(node:11559) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
