@@ -1,6 +1,3 @@
-- Downloading shuffle-string
-(node:6850) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
-(Use `node --trace-warnings ...` to show where the warning was created)
 [1528] Shuffle String  
 
 https://leetcode.com/problems/shuffle-string/description/
@@ -65,3 +62,5 @@ Constraints:
 	0 <= indices[i] < n
 	All values of indices are unique (i.e. indices is a permutation of the integers from 0 to n - 1).
 
+(node:6943) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
