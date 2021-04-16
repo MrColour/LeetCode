@@ -22,6 +22,7 @@ SRCS = $(addsuffix .c, $(addprefix $(SRC_DIR), $(FILE_NAMES)))
 OBJS = $(addprefix $(BIN_DIR), $(SRCS:.c=.o))
 
 all: $(NAME)
+	mv $(NAME) ../leets
 
 $(NAME):
 	gcc $(FLAGS) $(INCLUDES) -o $(NAME) $(SRCS)
