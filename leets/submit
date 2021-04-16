@@ -1,3 +1,8 @@
   ✔ Accepted
+<<<<<<< HEAD
   ✔ 53/53 cases passed (64 ms)
   ✔ Your runtime beats 71.29 % of python3 submissions
+=======
+  ✔ 15/15 cases passed (96 ms)
+  ✔ Your runtime beats 43.13 % of python3 submissions
+>>>>>>> 091cd9c58fef82476f5ab1a282881d949cec131b
