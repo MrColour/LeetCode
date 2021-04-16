@@ -65,12 +65,17 @@ void	open_url_id(int problem_no)
 	system(url_com);
 	free(url_com);
 
+	bool found = false;
+
 	url = NULL;
 	url_size = 0;
 	tf = fopen("temp", "r");
-	getline(&url, &url_size, tf);
-	getline(&url, &url_size, tf);
-	getline(&url, &url_size, tf);
+	while (found == false)
+	{
+		getline(&url, &url_size, tf);
+		if (strstr(url, "https"))
+			found = true;
+	}
 	fclose(tf);
 
 	asprintf(&url_com, OPEN_COM" %s", url);
