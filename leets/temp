@@ -1,43 +1,46 @@
-[1281] Subtract the Product and Sum of Digits of an Integer  
+- Downloading decompress-run-length-encoded-list
+(node:3863) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1313] Decompress Run-Length Encoded List  
 
-https://leetcode.com/problems/subtract-the-product-and-sum-of-digits-of-an-integer/description/
+https://leetcode.com/problems/decompress-run-length-encoded-list/description/
 
 * algorithms
-* Easy (85.63%)
-* Total Accepted:    138.3K
-* Total Submissions: 161.5K
-* Testcase Example:  '234'
+* Easy (85.43%)
+* Total Accepted:    127.9K
+* Total Submissions: 149.7K
+* Testcase Example:  '[1,2,3,4]'
 
-Given an integer number n, return the difference between the product of its digits and the sum of its digits.
+We are given a list nums of integers representing a list compressed with run-length encoding.
+
+Consider each adjacent pair of elements [freq, val] = [nums[2*i], nums[2*i+1]] (with i >= 0).  For each such pair, there are freq elements with value val concatenated in a sublist. Concatenate all the sublists from left to right to generate the decompressed list.
+
+Return the decompressed list.
+
  
 Example 1:
 
 
-Input: n = 234
-Output: 15 
-Explanation: 
-Product of digits = 2 * 3 * 4 = 24 
-Sum of digits = 2 + 3 + 4 = 9 
-Result = 24 - 9 = 15
+Input: nums = [1,2,3,4]
+Output: [2,4,4,4]
+Explanation: The first pair [1,2] means we have freq = 1 and val = 2 so we generate the array [2].
+The second pair [3,4] means we have freq = 3 and val = 4 so we generate [4,4,4].
+At the end the concatenation [2] + [4,4,4] is [2,4,4,4].
 
 
 Example 2:
 
 
-Input: n = 4421
-Output: 21
-Explanation: 
-Product of digits = 4 * 4 * 2 * 1 = 32 
-Sum of digits = 4 + 4 + 2 + 1 = 11 
-Result = 32 - 11 = 21
+Input: nums = [1,1,2,3]
+Output: [1,3,3]
 
 
  
 Constraints:
 
 
-	1 <= n <= 10^5
+	2 <= nums.length <= 100
+	nums.length % 2 == 0
+	1 <= nums[i] <= 100
 
 
-(node:11559) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
-(Use `node --trace-warnings ...` to show where the warning was created)
