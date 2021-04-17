@@ -7,9 +7,6 @@ class Solution:
         for i in range(len(grid)):
             right += [max(grid[i])]
             top += [max(sideways[i])]
-        
-        print(top)
-        print(right)
             
         for i, line in enumerate(grid):
             for j, n in enumerate(line):
