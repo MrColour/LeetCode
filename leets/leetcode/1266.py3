@@ -7,4 +7,5 @@ class Solution:
             ydel = abs(prev[1] - point[1])
             time += min(xdel, ydel)
             time += max(xdel, ydel) - min(xdel, ydel)
+            prev = point
         return (time) 
