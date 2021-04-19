@@ -9,7 +9,7 @@ def sort_dia(matrix, x, y):
         x += 1
         y += 1
     
-    print(collect)
+    # print(collect)
     collect = sorted(collect)
     for num in collect:
         matrix[sy][sx] = num
@@ -19,14 +19,13 @@ def sort_dia(matrix, x, y):
 class Solution:
     def diagonalSort(self, mat: List[List[int]]) -> List[List[int]]:
         x = 0
-        for i in range(len(mat)):
+        for i in range(len(mat[0])):
             sort_dia(mat, x, 0)
             x += 1
 
         y = 0
-        for i in range(1, len(mat[0])):
+        for i in range(1, len(mat)):
             sort_dia(mat, 0, y)
             y += 1
 
         return (mat)
-        
