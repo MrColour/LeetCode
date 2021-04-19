@@ -60,7 +60,7 @@ void	open_url_id(int problem_no)
 	char	*url;
 	size_t	url_size;
 	FILE	*tf;
-zzz
+	
 	asprintf(&url_com, "leetcode show %d > temp 2>&1", problem_no);
 	system(url_com);
 	free(url_com);
