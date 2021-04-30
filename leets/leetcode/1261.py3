@@ -10,30 +10,22 @@ def create(root, val):
         return
 
     root.val = val
-
-    create(root.left, root.val * 2 + 1)
-    create(root.right, root.val * 2 + 2)
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-
-def create(root, val):
-    if (root is None):
-        return
-
-    root.val = val
+    # print(val)
 
     create(root.left, root.val * 2 + 1)
     create(root.right, root.val * 2 + 2)
 
 def traverse(root, seek, dest):
-    if (root is None or dest[0] is not None):
+    if (root is None):
+        return
+    
+    if (dest[0] is not None):
+        return
+    
+    if (root.val > seek):
         return
 
-    if (root.val is seek):
+    if (root.val == seek):
         dest[0] = root
         return
 
